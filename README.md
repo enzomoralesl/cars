@@ -13,6 +13,7 @@ post(/topicos) json de teste
 get(/topicos)
 
 resultado: todos os topicos com seus respectivos usuários
+
 resultado usando "?titulo=titulo a ser pesquisado": apenas o titulo achado no banco
 
 
