@@ -18,7 +18,19 @@ public class Topico {
 	@Enumerated(EnumType.STRING)
 	private Status status = Status.SEM_RESPOSTA;
 	@ManyToOne
-	private Usuario userTopico;
+	private Usuario usuario;
+	
+	public Topico() {
+	}
+	
+	public Topico(String titulo, String mensagem, Usuario usuario) {
+		this.titulo = titulo;
+		this.mensagem = mensagem;
+		this.usuario = usuario;
+	}
+	
+	//construtor default e o construtor que fica mais facil de utilizar para o form
+	
 
 	public Long getId() {
 		return id;
@@ -52,12 +64,12 @@ public class Topico {
 		this.status = status;
 	}
 	
-	public Usuario getUserTopico() {
-		return userTopico;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setUserTopico(Usuario userTopico) {
-		this.userTopico = userTopico;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 
