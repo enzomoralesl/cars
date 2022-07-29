@@ -35,6 +35,7 @@ public class TopicosController {
 	
 	@GetMapping
 	public List<TopicoDto> listar(String titulo) {
+		System.out.println(titulo);
 		if (titulo == null) {
 			List<Topico> topicos = topicoRepository.findAll();
 			return TopicoDto.converter(topicos);
@@ -50,6 +51,8 @@ public class TopicosController {
 	public ResponseEntity<TopicoDto> cadastrar(@RequestBody @Valid TopicoForm form, UriComponentsBuilder uriBuilder) {
 		Topico topico = form.converter(usuarioRepository);
 		topicoRepository.save(topico);
+		
+		//criar retorno no body passando o id, dados cadastrados e o Usuario que o UsuarioRepository pega no banco
 		
 		URI uri = uriBuilder.path("/topicos/{id}").buildAndExpand(topico.getId()).toUri();
 		return ResponseEntity.created(uri).body(new TopicoDto(topico));
