@@ -48,11 +48,11 @@ public class Car {
 		this.model = model;
 	}
 
-	public String getMensagem() {
+	public String getBrand() {
 		return brand;
 	}
 
-	public void setMensagem(String brand) {
+	public void setBrand(String brand) {
 		this.brand = brand;
 	}
 
@@ -64,11 +64,11 @@ public class Car {
 		this.status = status;
 	}
 	
-	public CarUser getUsuario() {
+	public CarUser getCarUser() {
 		return carUser;
 	}
 
-	public void setUsuario(CarUser carUser) {
+	public void setCarUser(CarUser carUser) {
 		this.carUser = carUser;
 	}
 

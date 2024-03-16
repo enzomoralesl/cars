@@ -16,8 +16,8 @@ public class CarDto {
 	public CarDto(Car car) {
 		this.id = car.getId();
 		this.model = car.getModel();
-		this.brand = car.getMensagem();
-		this.carUser = car.getUsuario();
+		this.brand = car.getBrand();
+		this.carUser = car.getCarUser();
 	}
 
 	public Long getId() {
@@ -28,11 +28,11 @@ public class CarDto {
 		return model;
 	}
 
-	public String getMensagem() {
+	public String getBrand() {
 		return brand;
 	}
 	
-	public CarUser getUsuario() {
+	public CarUser getCarUser() {
 		return carUser;
 	}
 
