@@ -1,4 +1,4 @@
-package br.com.prova.tokio.model;
+package br.com.cars.model;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -9,24 +9,24 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Topico {
+public class Car {
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String titulo;
-	private String mensagem;
+	private String model;
+	private String brand;
 	@Enumerated(EnumType.STRING)
-	private Status status = Status.SEM_RESPOSTA;
+	private Status status = Status.NO_STATE;
 	@ManyToOne
-	private Usuario usuario;
+	private CarUser carUser;
 	
-	public Topico() {
+	public Car() {
 	}
 	
-	public Topico(String titulo, String mensagem, Usuario usuario) {
-		this.titulo = titulo;
-		this.mensagem = mensagem;
-		this.usuario = usuario;
+	public Car(String model, String brand, CarUser carUser) {
+		this.model = model;
+		this.brand = brand;
+		this.carUser = carUser;
 	}
 	
 	//construtor default e o construtor que fica mais facil de utilizar para o form
@@ -40,20 +40,20 @@ public class Topico {
 		this.id = id;
 	}
 
-	public String getTitulo() {
-		return titulo;
+	public String getModel() {
+		return model;
 	}
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+	public void setModel(String model) {
+		this.model = model;
 	}
 
 	public String getMensagem() {
-		return mensagem;
+		return brand;
 	}
 
-	public void setMensagem(String mensagem) {
-		this.mensagem = mensagem;
+	public void setMensagem(String brand) {
+		this.brand = brand;
 	}
 
 	public Status getStatus() {
@@ -64,12 +64,12 @@ public class Topico {
 		this.status = status;
 	}
 	
-	public Usuario getUsuario() {
-		return usuario;
+	public CarUser getUsuario() {
+		return carUser;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setUsuario(CarUser carUser) {
+		this.carUser = carUser;
 	}
 
 
