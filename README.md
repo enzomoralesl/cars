@@ -1,17 +1,18 @@
 # Cars Project
 Personal Spring Boot project
 
-## Technologies :computer: 
-Database: h2
-Framework: Spring Boot
-Language: Java 18
-
+## Technologies :computer:
+- Framework: Spring Boot
+- Language: Java 18
+- Database: h2
+- 
 ### Pre-Scripted SQL query to create database
 
 
 ### Endpoints
 
 post(/api/cars)
+Request:
 ```
 {
     "model":"Car Model",
@@ -20,7 +21,7 @@ post(/api/cars)
 }
 ```
 
-get(/cars)
+get(/api/cars) - Response after database creation
 ```
 [
     {
