@@ -1,4 +1,4 @@
-package br.com.prova.tokio.validation;
+package br.com.cars.validation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +26,8 @@ public class ValidationErrorHandler {
 		
 		List<FieldError> fieldErrors = exception.getBindingResult().getFieldErrors();
 		fieldErrors.forEach(e -> {
-			String mensagem = messageSource.getMessage(e, LocaleContextHolder.getLocale());
-			FormErrorDto erro = new FormErrorDto(e.getField(), mensagem);
+			String brand = messageSource.getMessage(e, LocaleContextHolder.getLocale());
+			FormErrorDto erro = new FormErrorDto(e.getField(), brand);
 			dto.add(erro);
 		});
 		

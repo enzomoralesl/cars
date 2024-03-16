@@ -1,21 +1,60 @@
-# tokio
-Teste Spring Boot
+# Cars Project
+Personal Spring Boot project
 
-## Using h2 database with JPA
+## Technologies :computer: 
+Database: h2
+Framework: Spring Boot
+Language: Java 18
 
-post(/topicos) json de teste
+### Pre-Scripted SQL query to create database
+
+
+### Endpoints
+
+post(/api/cars)
+```
 {
-    "titulo":"Dúvida Postman2",
-        "mensagem":"Como fazer um Post",
-        "nomeUser":"Enzo Morales"
+    "model":"Car Model",
+    "brand":"Car Brand",
+    "carUser":"User Name"
 }
+```
 
-get(/topicos)
-
-resultado: todos os topicos com seus respectivos usuários
-
-resultado usando "?titulo=titulo a ser pesquisado": apenas o titulo achado no banco
-
-
-
-script sql para criar dados de user e topicos já estão pre configurados pro h2 subir com eles, facilitando o teste das APIs
+get(/cars)
+```
+[
+    {
+        "id": 1,
+        "model": "McLaren",
+        "brand": "Senna",
+        "carUser": {
+            "id": 1,
+            "name": "Enzo Morales",
+            "email": "enzo@email.com",
+            "password": "enzo123"
+        }
+    },
+    {
+        "id": 2,
+        "model": "Ferrari",
+        "brand": "Enzo",
+        "carUser": {
+            "id": 2,
+            "name": "Enzo Leitão",
+            "email": "enzo2@email.com",
+            "password": "enzo12345"
+        }
+    },
+    {
+        "id": 3,
+        "model": "Porsche",
+        "brand": "Macan",
+        "carUser": {
+            "id": 1,
+            "name": "Enzo Morales",
+            "email": "enzo@email.com",
+            "password": "enzo123"
+        }
+    }
+]
+```
