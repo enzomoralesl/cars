@@ -1,5 +1,9 @@
 package br.com.cars.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -9,6 +13,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
+@NoArgsConstructor
+@Getter
+@Setter
 public class Car {
 
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,61 +26,11 @@ public class Car {
 	private Status status = Status.NO_STATE;
 	@ManyToOne
 	private CarUser carUser;
-	
-	public Car() {
-	}
-	
-	public Car(String model, String brand, CarUser carUser) {
+
+	public Car(String model, String brand, Status status, CarUser carUser) {
 		this.model = model;
 		this.brand = brand;
-		this.carUser = carUser;
-	}
-	
-	//construtor default e o construtor que fica mais facil de utilizar para o form
-	
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getModel() {
-		return model;
-	}
-
-	public void setModel(String model) {
-		this.model = model;
-	}
-
-	public String getBrand() {
-		return brand;
-	}
-
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
-
-	public Status getStatus() {
-		return status;
-	}
-
-	public void setStatus(Status status) {
 		this.status = status;
-	}
-	
-	public CarUser getCarUser() {
-		return carUser;
-	}
-
-	public void setCarUser(CarUser carUser) {
 		this.carUser = carUser;
 	}
-
-
-	
-	
-
 }
