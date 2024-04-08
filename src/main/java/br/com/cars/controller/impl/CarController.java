@@ -4,8 +4,6 @@ import br.com.cars.controller.ICarController;
 import br.com.cars.dto.CarResponse;
 import br.com.cars.dto.CarRequest;
 import br.com.cars.model.Car;
-import br.com.cars.repository.CarRepository;
-import br.com.cars.repository.CarUserRepository;
 import br.com.cars.service.impl.CarService;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
@@ -23,11 +21,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/cars")
 public class CarController implements ICarController {
-	
-	@Autowired
-	private CarRepository carRepository;
-	@Autowired
-	private CarUserRepository carUserRepository;
+
 	@Autowired
 	private CarService carService;
 
@@ -36,8 +30,8 @@ public class CarController implements ICarController {
 
 	@Override
 	@GetMapping
-	public List<CarResponse> getCars(String userName) {
-		return carService.getCars(userName);
+	public List<CarResponse> getCars(String email) {
+		return carService.getCars(email);
 	}
 	@Override
 	@PostMapping
@@ -46,7 +40,7 @@ public class CarController implements ICarController {
 		carService.createCar(car);
 		
 		//retorno passando o id, dados cadastrados e o Usuario
-		URI uri = uriBuilder.path("/cars/{id}").buildAndExpand(car.getId()).toUri();
+		URI uri = uriBuilder.path("/api/v1/cars/{id}").buildAndExpand(car.getId()).toUri();
 
 		CarResponse carResponse = mapper.map(car, CarResponse.class);
 		return ResponseEntity.created(uri).body(carResponse);

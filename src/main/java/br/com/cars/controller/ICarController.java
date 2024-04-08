@@ -10,6 +10,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 public interface ICarController {
-    public List<CarResponse> getCars(String model);
-    public ResponseEntity<CarResponse> createCar(@RequestBody @Valid CarRequest form, UriComponentsBuilder uriBuilder);
+    public List<CarResponse> getCars(String email);
+    public ResponseEntity<CarResponse> createCar(@RequestBody @Valid CarRequest carRequest, UriComponentsBuilder uriBuilder);
+
 }
