@@ -3,8 +3,7 @@ package br.com.cars.dto;
 import lombok.*;
 import org.hibernate.validator.constraints.Length;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 @Getter
 @Setter
@@ -13,10 +12,10 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class CarUserRequest {
 
-    @NotNull @NotEmpty
+    @NotBlank
     private String name;
-    @NotNull @NotEmpty
+    @NotBlank
     private String email;
-    @NotNull @NotEmpty @Length(min = 3)
+    @NotBlank @Length(min = 3)
     private String password;
 }
