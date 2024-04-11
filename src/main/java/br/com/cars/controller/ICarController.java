@@ -7,10 +7,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
-import java.util.List;
 
 public interface ICarController {
-    public List<CarResponse> getCars(String email);
+    public ResponseEntity<Object> getCars(String email);
     public ResponseEntity<CarResponse> createCar(@RequestBody @Valid CarRequest carRequest, UriComponentsBuilder uriBuilder);
 
 }

@@ -45,7 +45,6 @@ public class CarService implements ICarService {
         if (!this.carUserExists(car.getCarUser())) {
             throw new IllegalArgumentException("User not found!");
         }
-
         CarUser carUserWithId = carUserRepository.findByEmail(car.getCarUser().getEmail());
         car.setCarUser(carUserWithId);
         carRepository.save(car);
