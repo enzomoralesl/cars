@@ -17,6 +17,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.List;
 
 
 @RestController
@@ -32,18 +33,20 @@ public class CarController implements ICarController {
 	@Override
 	@GetMapping
 	public ResponseEntity<Object> getCars(String email) {
-		return ResponseHandler.responseBuilder("Cars listed by search", HttpStatus.OK, carService.getCars(email));
+		List<CarResponse> cars = carService.getCars(email);
+		return ResponseHandler.responseBuilder("Cars listed by search", HttpStatus.OK, cars);
 	}
 	@Override
 	@PostMapping
-	public ResponseEntity<CarResponse> createCar(@RequestBody @Valid CarRequest carRequest, UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<Object> createCar(@RequestBody @Valid CarRequest carRequest, UriComponentsBuilder uriBuilder) {
 		Car car = mapper.map(carRequest, Car.class);
 		carService.createCar(car);
-		
-		//retorno passando o id, dados cadastrados e o Usuario
+		CarResponse carResponse = mapper.map(car, CarResponse.class);
+
 		URI uri = uriBuilder.path("/api/v1/cars/{id}").buildAndExpand(car.getId()).toUri();
 
-		CarResponse carResponse = mapper.map(car, CarResponse.class);
-		return ResponseEntity.created(uri).body(carResponse);
+
+
+		return ResponseHandler.responseBuilderWithLocation("Car created with success", HttpStatus.CREATED, carResponse, uri);
 	}
 }
