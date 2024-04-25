@@ -9,6 +9,9 @@ import javax.validation.Valid;
 
 public interface ICarController {
     public ResponseEntity<Object> getCars(String email);
+
+    public ResponseEntity<Object> getCarsByEmail(String email);
+
     public ResponseEntity<Object> createCar(@RequestBody @Valid CarRequest carRequest, UriComponentsBuilder uriBuilder);
 
 }

@@ -1,8 +1,8 @@
 package br.com.cars.controller.impl;
 
 import br.com.cars.controller.ICarController;
-import br.com.cars.dto.CarResponse;
 import br.com.cars.dto.CarRequest;
+import br.com.cars.dto.CarResponse;
 import br.com.cars.handler.response.ResponseHandler;
 import br.com.cars.model.Car;
 import br.com.cars.service.impl.CarService;
@@ -36,6 +36,14 @@ public class CarController implements ICarController {
 		List<CarResponse> cars = carService.getCars(email);
 		return ResponseHandler.responseBuilder("Cars listed by search", HttpStatus.OK, cars);
 	}
+
+	@Override
+	@GetMapping("/{email}")
+	public ResponseEntity<Object> getCarsByEmail(@PathVariable String email) {
+		List<CarResponse> cars = carService.getCarsByUser(email);
+		return ResponseHandler.responseBuilder("Cars listed by user email", HttpStatus.OK, cars);
+	}
+
 	@Override
 	@PostMapping
 	public ResponseEntity<Object> createCar(@RequestBody @Valid CarRequest carRequest, UriComponentsBuilder uriBuilder) {
