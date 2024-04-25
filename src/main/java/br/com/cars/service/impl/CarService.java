@@ -1,6 +1,7 @@
 package br.com.cars.service.impl;
 
 import br.com.cars.dto.CarResponse;
+import br.com.cars.handler.error.CarUserNotFound;
 import br.com.cars.model.Car;
 import br.com.cars.model.CarUser;
 import br.com.cars.repository.CarRepository;
@@ -43,7 +44,7 @@ public class CarService implements ICarService {
     @Override
     public void createCar(Car car) {
         if (!this.carUserExists(car.getCarUser())) {
-            throw new IllegalArgumentException("User not found!");
+            throw new CarUserNotFound("User not found!");
         }
         CarUser carUserWithId = carUserRepository.findByEmail(car.getCarUser().getEmail());
         car.setCarUser(carUserWithId);

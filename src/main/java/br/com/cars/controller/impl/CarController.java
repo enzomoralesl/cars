@@ -45,8 +45,6 @@ public class CarController implements ICarController {
 
 		URI uri = uriBuilder.path("/api/v1/cars/{id}").buildAndExpand(car.getId()).toUri();
 
-
-
 		return ResponseHandler.responseBuilderWithLocation("Car created with success", HttpStatus.CREATED, carResponse, uri);
 	}
 }
