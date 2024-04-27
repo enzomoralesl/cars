@@ -1,7 +1,8 @@
 package br.com.cars.service.impl;
 
 import br.com.cars.dto.CarResponse;
-import br.com.cars.handler.error.CarUserNotFound;
+import br.com.cars.handler.error.CarNotFoundException;
+import br.com.cars.handler.error.CarUserNotFoundException;
 import br.com.cars.model.Car;
 import br.com.cars.model.CarUser;
 import br.com.cars.repository.CarRepository;
@@ -38,13 +39,16 @@ public class CarService implements ICarService {
     public List<CarResponse> getCarsByUser(String email) {
         CarUser carUser = carUserRepository.findByEmail(email);
         List<Car> cars = carRepository.findByCarUser(carUser);
+
+        if(cars.isEmpty())  throw new CarNotFoundException("Cars not found!");
+
         return cars.stream().map(this::carToCarResponse).toList();
     }
 
     @Override
     public void createCar(Car car) {
         if (!this.carUserExists(car.getCarUser())) {
-            throw new CarUserNotFound("User not found!");
+            throw new CarUserNotFoundException("User not found!");
         }
         CarUser carUserWithId = carUserRepository.findByEmail(car.getCarUser().getEmail());
         car.setCarUser(carUserWithId);
