@@ -7,8 +7,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
@@ -18,7 +18,7 @@ public class CarRequest {
 	private String model;
 	@NotBlank @Length(min = 1)
 	private String brand;
-	@NotNull @JsonProperty("carUser")
+	@Valid @JsonProperty("carUser")
 	private CarUserRequest carUser;
 	private Status status;
 }
