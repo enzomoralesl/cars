@@ -41,6 +41,7 @@ INSERT INTO CAR(model, brand,  status, car_user_id) VALUES('Porsche', 'Macan',  
 ```
 
 <br />
+
 - GET(/api/v1/cars)
 
 <p>Request Query Params:</p>
@@ -95,9 +96,10 @@ email: {email}
     "status": 200
 }
 ```
+<br />
 
 - GET(/api/v1/cars/{email}) - email = enzo@email.com
-  <br />
+
 <p>Response:</p>
 
 ```
