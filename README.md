@@ -24,8 +24,8 @@ INSERT INTO CAR(model, brand,  status, car_user_id) VALUES('Porsche', 'Macan',  
 ```
 
 ## Endpoints
-- POST(/api/v1/cars)
-<br />Request:
+- POST(/api/v1/cars)<br />
+Request:
 ```
 {
     "model": "Sedan",
@@ -40,8 +40,8 @@ INSERT INTO CAR(model, brand,  status, car_user_id) VALUES('Porsche', 'Macan',  
 ```
 
 
-- GET(/api/v1/cars)
-<br />Request Query Params:
+- GET(/api/v1/cars)<br />
+Request Query Params:
 ```
 email: {email}
 ```
