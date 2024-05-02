@@ -25,12 +25,13 @@ public class ErrorHandler {
         return new ResponseEntity<>(responseErrorPattern, HttpStatus.NOT_FOUND);
     }
 /*
-    @ExceptionHandler(UnexpectedTypeException.class)
-    public ResponseEntity<Object> handleMethodArgumentNotValid(UnexpectedTypeException ex) {
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<Object> handleMethodArgumentNotValid(HttpMessageNotReadableException ex) {
 
-        CarPatternException carPatternException = new CarPatternException(ex.getMessage(), ex.getCause().getMessage(), HttpStatus.BAD_REQUEST.value());
+        ResponseErrorPattern responseErrorPattern = new ResponseErrorPattern("Tipos aceitos: NEW/PRE_OWNED/NO_STATE", ex.getCause().getMessage(), HttpStatus.BAD_REQUEST.value());
 
-        return new ResponseEntity<>(carPatternException, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(responseErrorPattern, HttpStatus.BAD_REQUEST);
 
-    }*/
+    }
+    */
 }

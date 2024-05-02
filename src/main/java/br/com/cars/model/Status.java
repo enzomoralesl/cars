@@ -1,10 +1,13 @@
 package br.com.cars.model;
 
-public enum Status {
+import com.fasterxml.jackson.annotation.JsonEnumDefaultValue;
 
+
+public enum Status {
+	@JsonEnumDefaultValue
 	NO_STATE,
 	NEW,
-	PRE_OWNED;
+	PRE_OWNED
 	
 
 }
