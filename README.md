@@ -40,7 +40,7 @@ INSERT INTO CAR(model, brand,  status, car_user_id) VALUES('Porsche', 'Macan',  
 }
 ```
 
-<br />
+<br /><br />
 
 - GET(/api/v1/cars)
 
@@ -96,7 +96,7 @@ email: {email}
     "status": 200
 }
 ```
-<br />
+<br /><br />
 
 - GET(/api/v1/cars/{email}) - email = enzo@email.com
 
