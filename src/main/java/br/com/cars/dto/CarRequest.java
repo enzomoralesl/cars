@@ -16,10 +16,10 @@ import javax.validation.constraints.NotBlank;
 @Data
 public class CarRequest {
 
-	@NotBlank @Length(min = 1)
-	private String model;
-	@NotBlank @Length(min = 1)
+	@NotBlank(message = "The brand is required.") @Length(min = 1)
 	private String brand;
+	@NotBlank(message = "The model is required.") @Length(min = 1)
+	private String model;
 	@Valid @JsonProperty("carUser")
 	private CarUserRequest carUser;
 	private Status status = Status.NO_STATE;

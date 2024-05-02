@@ -48,7 +48,7 @@ public class CarService implements ICarService {
     @Override
     public void createCar(Car car) {
         if (!this.carUserExists(car.getCarUser())) {
-            throw new CarUserNotFoundException("User not found!",
+            throw new CarUserNotFoundException("Car user not found!",
                     new Throwable("User/Username/Password doesn't match or is incorrect"));
         }
         CarUser carUserWithId = carUserRepository.findByEmail(car.getCarUser().getEmail());
