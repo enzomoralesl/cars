@@ -48,69 +48,82 @@ email: {email}
 
 Response:
 ```
-[
-    {
-        "id": 1,
-        "model": "McLaren",
-        "brand": "Senna",
-        "carUser": {
+{
+    "payload": [
+        {
             "id": 1,
-            "name": "Enzo Morales",
-            "email": "enzo@email.com",
-            "password": "enzo123"
-        }
-    },
-    {
-        "id": 2,
-        "model": "Ferrari",
-        "brand": "Enzo",
-        "carUser": {
+            "model": "McLaren",
+            "brand": "Senna",
+            "carUser": {
+                "id": 1,
+                "name": "Enzo Morales",
+                "email": "enzo@email.com",
+                "password": "enzo123"
+            },
+            "status": "NO_STATE"
+        },
+        {
             "id": 2,
-            "name": "Enzo Leitão",
-            "email": "enzo2@email.com",
-            "password": "enzo12345"
+            "model": "Ferrari",
+            "brand": "Enzo",
+            "carUser": {
+                "id": 2,
+                "name": "Enzo Leitão",
+                "email": "enzo2@email.com",
+                "password": "enzo12345"
+            },
+            "status": "NEW"
+        },
+        {
+            "id": 3,
+            "model": "Porsche",
+            "brand": "Macan",
+            "carUser": {
+                "id": 1,
+                "name": "Enzo Morales",
+                "email": "enzo@email.com",
+                "password": "enzo123"
+            },
+            "status": "PRE_OWNED"
         }
-    },
-    {
-        "id": 3,
-        "model": "Porsche",
-        "brand": "Macan",
-        "carUser": {
-            "id": 1,
-            "name": "Enzo Morales",
-            "email": "enzo@email.com",
-            "password": "enzo123"
-        }
-    }
-]
+    ],
+    "message": "Cars listed by search",
+    "status": 200
+}
 ```
 
 
 GET(/api/v1/cars/{email}) - /api/v1/cars/enzo@email.com
 Response:
 ```
-[
-    {
-        "id": 1,
-        "model": "McLaren",
-        "brand": "Senna",
-        "carUser": {
+{
+    "payload": [
+        {
             "id": 1,
-            "name": "Enzo Morales",
-            "email": "enzo@email.com",
-            "password": "enzo123"
+            "model": "McLaren",
+            "brand": "Senna",
+            "carUser": {
+                "id": 1,
+                "name": "Enzo Morales",
+                "email": "enzo@email.com",
+                "password": "enzo123"
+            },
+            "status": "NO_STATE"
+        },
+        {
+            "id": 3,
+            "model": "Porsche",
+            "brand": "Macan",
+            "carUser": {
+                "id": 1,
+                "name": "Enzo Morales",
+                "email": "enzo@email.com",
+                "password": "enzo123"
+            },
+            "status": "PRE_OWNED"
         }
-    },
-    {
-        "id": 3,
-        "model": "Porsche",
-        "brand": "Macan",
-        "carUser": {
-            "id": 1,
-            "name": "Enzo Morales",
-            "email": "enzo@email.com",
-            "password": "enzo123"
-        }
-    }
-]
+    ],
+    "message": "Cars listed by user email",
+    "status": 200
+}
 ```
