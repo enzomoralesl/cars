@@ -22,5 +22,5 @@ public class CarRequest {
 	private String brand;
 	@Valid @JsonProperty("carUser")
 	private CarUserRequest carUser;
-	private Status status;
+	private Status status = Status.NO_STATE;
 }
