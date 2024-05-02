@@ -41,7 +41,8 @@ Request:
 
 
 - GET(/api/v1/cars)
-Request Query Params:
+
+- Request Query Params:
 ```
 email: {email}
 ```
